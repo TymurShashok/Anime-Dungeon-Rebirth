@@ -1,0 +1,4 @@
+[1] = Play
+[2] = Inventory
+[3] = Shop
+[4] = Settings
