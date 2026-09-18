@@ -1,27 +1,43 @@
 ﻿#include "AnimeDungeonRebirthHeader.h"
 
-PLAYER player = {};
+PLAYER player = {Virtus_Hammer, StartClothes}; // stats / weapon / armor
 
-enum commands { PLAY = 1, INVENTORY = 2, SHOP = 3, SETTINGS = 4, };
+enum COMMANDS { PLAY = 1, INVENTORY = 2, SHOP = 3, SETTINGS = 4, };
 
 int main() {
 
-	int cmd = 0;
-	std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
-	std::cout << std::setfill(' ') << std::setw(65) << Name << std::endl;;
-	std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
-	
-	do {
+	srand(time(NULL));
 
+	
+	SetConsoleCP(CP_UTF8);
+	SetConsoleOutputCP(CP_UTF8);
+
+	/*player.getAll();*/
+
+	//_getch();
+
+	//test
+	//player.getExp(ORC.getDropExp());
+	//experiencetest(player.getExperience(), 40);
+	//getNewLevel(player);
+	//std::cout << player.get_Level();
+
+	int cmd = 0;
+
+	do {
+		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
+		std::cout << std::setfill(' ') << std::setw(65) << Name << std::endl;;
+		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
 		mainMenu();
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
+		std::cout << std::setfill(' ');
 		std::cout << "Insert a Command: ";
 		std::cin >> cmd;
 		system("cls");
 		switch (cmd) {
 		case PLAY: {
 
-			fight(player, ORC);
+			forest_dungeon(player);
 
 			break;
 		}

@@ -17,29 +17,34 @@ public:
 		Skills{ firstSK, SecondSK, ThirdSK, FourthSK } {
 	}
 
-	double getDamage(int i) {
-		return damage + Skills[i-1].getSkillDamage();
+	double get_visual_damage() {
+		return damage;
 	}
 
-	void getSkills() {
-
-		for(int i = 0; i < 4; i++){
-			std::cout << Skills[i].getSkillName();
-		}
+	double getDamage(int i) {
+		return damage + Skills[i-1].getSkillDamage();
 	}
 
 	void printSkills() {
 
 		for (int i = 0; i < 4; i++) {
-			std::cout << Skills[i].getSkillName() << " ";
+			std::cout << "[" << i+1 <<  "]" << Skills[i].getSkillName() << " ";
 			std::cout << std::endl;
 		}
 	}
 };
 
-
+// PLAYER
 extern WEAPON Wood_Sword;
 extern WEAPON Stone_Sword;
 extern WEAPON Zangetsu;
 extern WEAPON NarutoCombatV1;
 extern WEAPON SasukeCombatV1;
+extern WEAPON Virtus_Hammer;
+
+
+// MONSTER
+extern WEAPON Butterfly_weapon;
+extern WEAPON Claws;
+extern WEAPON Dryad_Wand;
+extern WEAPON Centaur_Axe;

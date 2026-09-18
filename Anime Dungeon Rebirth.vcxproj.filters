@@ -33,6 +33,12 @@
     <ClCompile Include="AnimeDungeonRebirthDungeons.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="AnimeDungeonRebirthPlayer.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimeDungeonRebirthTESTS.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimeDungeonRebirthHeader.h">
@@ -56,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Interface\MainMenu.txt">
+      <Filter>Файлы ресурсов\Interface</Filter>
+    </Text>
+    <Text Include="Interface\moveChoice.txt">
+      <Filter>Файлы ресурсов\Interface</Filter>
+    </Text>
+    <Text Include="Interface\Fighting.txt">
       <Filter>Файлы ресурсов\Interface</Filter>
     </Text>
   </ItemGroup>

@@ -102,6 +102,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +129,8 @@
     <ClCompile Include="AnimeDungeonRebirthGlobals.cpp" />
     <ClCompile Include="AnimeDungeonRebirthMain.cpp" />
     <ClCompile Include="AnimeDungeonRebirthMenuFunctionscpp.cpp" />
+    <ClCompile Include="AnimeDungeonRebirthPlayer.cpp" />
+    <ClCompile Include="AnimeDungeonRebirthTESTS.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimeDungeonRebirthARMORS.h" />
@@ -138,7 +141,9 @@
     <ClInclude Include="AnimeDungeonRebirthSWORDS.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Interface\Fighting.txt" />
     <Text Include="Interface\MainMenu.txt" />
+    <Text Include="Interface\moveChoice.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
