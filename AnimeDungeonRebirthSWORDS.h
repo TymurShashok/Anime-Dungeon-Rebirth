@@ -1,4 +1,5 @@
 #pragma once
+#include "AnimeDungeonRebirthHeader.h"
 #include "AnimeDungeonRebirthMODIFIERS.h"
 #include "AnimeDungeonRebirthSKILLS.h"
 
@@ -25,12 +26,8 @@ public:
 		return damage + Skills[i-1].getSkillDamage();
 	}
 
-	void printSkills() {
-
-		for (int i = 0; i < 4; i++) {
-			std::cout << "[" << i+1 <<  "]" << Skills[i].getSkillName() << " ";
-			std::cout << std::endl;
-		}
+	std::string getSkillName(int i) {
+		return Skills[i-1].getSkillName();
 	}
 };
 

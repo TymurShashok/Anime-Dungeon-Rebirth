@@ -2,7 +2,7 @@
 
 PLAYER player = {Virtus_Hammer, StartClothes}; // stats / weapon / armor
 
-enum COMMANDS { PLAY = 1, INVENTORY = 2, SHOP = 3, SETTINGS = 4, };
+enum COMMANDS { PLAY = '1', INVENTORY = '2', SHOP = '3', SETTINGS = '4', };
 
 int main() {
 
@@ -22,9 +22,10 @@ int main() {
 	//getNewLevel(player);
 	//std::cout << player.get_Level();
 
-	int cmd = 0;
+	char cmd;
 
 	do {
+		player.Revive();
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
 		std::cout << std::setfill(' ') << std::setw(65) << Name << std::endl;;
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
@@ -32,12 +33,12 @@ int main() {
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
 		std::cout << std::setfill(' ');
 		std::cout << "Insert a Command: ";
-		std::cin >> cmd;
+		cmd = fightingChoice();
 		system("cls");
 		switch (cmd) {
 		case PLAY: {
 
-			forest_dungeon(player);
+			forest_dungeon(player, ForestStatsRange);
 
 			break;
 		}

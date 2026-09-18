@@ -1,5 +1,5 @@
 #pragma once
-
+#include "AnimeDungeonRebirthHeader.h"
 const int maxSkills = 4;
 
 class SKILL {

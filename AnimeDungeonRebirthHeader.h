@@ -8,7 +8,7 @@
 #include <cstdlib> 
 #include <ctime> 
 
-
+#include "AnimeDungeonRebirthRandom.h"
 #include "AnimeDungeonRebirthSKILLS.h"
 #include "AnimeDungeonRebirthMODIFIERS.h"
 #include "AnimeDungeonRebirthSWORDS.h"
@@ -26,8 +26,8 @@ private:
 	double Experience = 0;
 	double Max_Experience = 80 * Level;
 	int Skill_Points = Level * 3;
-	double HP = Vitality * 3 + 20;
-	double Mana = Intelegience * 5 + 100;
+	double HP = 100.0;
+	double Mana = 100.0;
 
 	/// ABILITES
 
@@ -78,7 +78,7 @@ public:
 	// 
 
 	void Levelup(int Lvl) {
-		this->Level = Lvl + 1;
+		Level++;
 	}
 	void setLevel(int Lvl) {
 		this->Level = Lvl;
@@ -97,6 +97,13 @@ public:
 	 void resetExperience() {
 		 this->Experience = 0;
 	 }
+
+	 double getMaxHP() {
+		 return 100.0 + Vitality * 3.0;
+	 }
+	 double getMaxMana() {
+		 return 100.0 + Intelegience * 5;
+	 }
 };
 
 
@@ -107,10 +114,33 @@ private:
 	WEAPON weapon;
 	ARMOR armor;
 
+	bool PlayerState = true; // true = alive | false = dead
+
 public:
 	PLAYER() :name("None"), stats(), weapon(Wood_Sword), armor(StartClothes) {}
 	PLAYER(WEAPON weapon, ARMOR arm) :name("None"), stats(), weapon(weapon), armor(arm) {}
 	PLAYER(std::string name , STATS stats, WEAPON weapon, ARMOR arm) :name(name), stats(stats), weapon(weapon), armor(arm) {}
+
+	bool isAlive() {
+		if (PlayerState = true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	void Die() {
+		if (stats.getHp() <= 0) {
+			PlayerState = false;
+		}
+	}
+
+	void Revive() {
+		stats.setHP(stats.getMaxHP());
+		stats.setMana(stats.getMaxMana());
+		PlayerState = true;
+	}
 
 	std::string getName() {
 		return name;
@@ -124,7 +154,7 @@ public:
 		return weapon.getDamage(g) + stats.getStrenght() * 0.2;
 	}
 
-	double takeDamage(double damage) {
+	void takeDamage(double damage) {
 		double takeDamage = damage - armor.getDefense();
 		stats.setHP(stats.getHp() - takeDamage);
 	}
@@ -153,9 +183,9 @@ public:
 		stats.setLevel(Lvl + 1);
 	}
 
-	void printSkills() {
+	std::string getSkillName(int i) {
 
-		weapon.printSkills();
+		return weapon.getSkillName(i);
 	}
 
 	void getExp(double exp) {
@@ -182,7 +212,7 @@ public:
 //==============================
 
 int dungeonChoice();
-void forest_dungeon(PLAYER& player);
+void forest_dungeon(PLAYER& player, MonsterStatsRange st);
 void Dungeons(PLAYER& player, MONSTERS monster);
 
 
@@ -195,8 +225,8 @@ void Dungeons(PLAYER& player, MONSTERS monster);
 //==============================
 //FIGHTING
 //==============================
-
-int fightingChoice();
+int skill_choice(char skill);
+char fightingChoice();
 void Play(PLAYER& player, MONSTERS Monster); // Function for Play game; Dungeon Choice, Fighting and more;
 void fight(PLAYER& player, MONSTERS Monster); // Fight Mechanic
 
@@ -249,6 +279,10 @@ void boxLine(std::string playerstat, std::string monsterstat, int width);
 void FightingBox(PLAYER player, MONSTERS monster);
 void fighting_stats(PLAYER player, MONSTERS monster);
 
+void action_tab_box(PLAYER player, MONSTERS monster, char action);
+void action_tab(PLAYER player, MONSTERS monster, char action);
+void action_box_line(std::string text, int width);
+
 void mainMenu(); // MainMenu of program
 void moveChoice();
 
@@ -262,15 +296,6 @@ void experiencetest(double experience, double Expected_experience);
 
 //RANDOM_VALUE
 
-template<typename T>
-T random_value(T min, T max) {
-	if constexpr (std::is_same_v<T, int>) {
-		return rand() % (max - min + 1) + min;
-	}
-	if constexpr (std::is_same_v<T, double>) {
-		return rand() * (max - min + 1) / RAND_MAX + min;
-	}
 
-}
 MONSTERSTATS generate_stats(MONSTERSTATS& stats, MonsterStatsRange st);
-MONSTERS random_forest_monster(int random_value);
+MONSTERS random_forest_monster(int random_value, MonsterStatsRange st);

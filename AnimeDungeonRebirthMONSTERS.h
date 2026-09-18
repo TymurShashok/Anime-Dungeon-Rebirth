@@ -1,6 +1,24 @@
 #pragma once
+#include "AnimeDungeonRebirthHeader.h"
 #include "AnimeDungeonRebirthSWORDS.h"
 #include "AnimeDungeonRebirthARMORS.h"
+
+struct MonsterStatsRange {
+
+	const int MIN_LVL;
+	const int MAX_LVL;
+
+	const double MIN_HP;
+	const double MAX_HP;
+
+	const double MIN_DROP_EXP;
+	const double MAX_DROP_EXP;
+
+	const double MANA;
+
+};
+
+
 
 class MONSTERSTATS {
 	// HP AND MANA
@@ -41,6 +59,14 @@ public:
 	void setMana(double mana) {
 		this->Mana = mana;
 	}
+
+	void generateNewStats(MonsterStatsRange st) {
+		level = random_value(st.MIN_LVL, st.MAX_LVL);
+		drop_Experience = random_value(st.MIN_DROP_EXP, st.MAX_DROP_EXP);
+		HP = random_value(st.MIN_HP, st.MAX_HP);
+		Mana = st.MANA;
+	}
+
 
 };
 
@@ -87,29 +113,19 @@ public:
 
 	double getDropExp() {
 		return stats.getDrop_Experience();
+		
+	}
+	void generateNewStats(MonsterStatsRange st) {
+		stats.generateNewStats(st);
 	}
 };
 
-struct MonsterStatsRange {
-
-	const int MIN_LVL;
-	const int MAX_LVL;
-
-	const double MIN_HP;
-	const double MAX_HP;
-
-	const double MIN_DROP_EXP;
-	const double MAX_DROP_EXP;
-
-	const double MANA;
-
-};
 
 
 //========
 //Forest
 //========
-
+extern MonsterStatsRange ForestStatsRange;
 extern MONSTERSTATS ForestDungeonStats;
 extern MONSTERS Butterfly;
 extern MONSTERS Wolf;

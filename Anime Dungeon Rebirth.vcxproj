@@ -137,10 +137,12 @@
     <ClInclude Include="AnimeDungeonRebirthHeader.h" />
     <ClInclude Include="AnimeDungeonRebirthMODIFIERS.h" />
     <ClInclude Include="AnimeDungeonRebirthMONSTERS.h" />
+    <ClInclude Include="AnimeDungeonRebirthRandom.h" />
     <ClInclude Include="AnimeDungeonRebirthSKILLS.h" />
     <ClInclude Include="AnimeDungeonRebirthSWORDS.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Interface\Action_Tab.txt" />
     <Text Include="Interface\Fighting.txt" />
     <Text Include="Interface\MainMenu.txt" />
     <Text Include="Interface\moveChoice.txt" />

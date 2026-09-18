@@ -16,7 +16,6 @@ SKILL Virtus_Slam("Virtus Slam", 30, 90.0, 4); // HAMMER SKILL: 39 DAMAGE, 90 MA
 
 // --MONSTERSKILLS--
 
-
 SKILL Hp_Drain("Hp drain", 21.0, 70.0, 4);
 SKILL WaterFall("WaterFall",50.0, 70.0, 7);
 
@@ -39,15 +38,15 @@ ARMOR StartClothes{ 5 };
 //===============
 
 //WEAPONS//
-WEAPON Butterfly_weapon{ random_value(14.0, 18.0), NOPE, slash, Fireball, Hp_Drain, WaterFall };
-WEAPON Claws{ random_value(11.0, 13.0), NOPE, slash, Fireball, Hp_Drain, WaterFall };
+WEAPON Butterfly_weapon{ random_value(6.0, 8.0), NOPE, slash, slash, Hp_Drain, Hp_Drain };
+WEAPON Claws{ random_value(7.0, 9.0), NOPE, slash, slash, slash, slash };
 WEAPON Dryad_Wand{ random_value(6.0, 9.0), NOPE, slash, Fireball, Hp_Drain, WaterFall};
-WEAPON Centaur_Axe{ random_value(21.0, 24.0) , NOPE, slash, Fireball, Hp_Drain, WaterFall };
+WEAPON Centaur_Axe{ random_value(21.0, 24.0) , NOPE, slash, slash, slash, WaterFall };
 
 //MONSTER//
 
 MONSTERSTATS ForestDungeonStats{ random_value(1, 4),random_value(40.0, 95.7), random_value(40.0, 51.0), 100.0 };
-MonsterStatsRange ForestStatsRange = { 1, 4, 40.0, 65.0, 40, 55, 100 }; // STATS FOR FOREST MONSTERS
+MonsterStatsRange ForestStatsRange = { 1, 3, 40.0, 65.0, 40, 55, 100 }; // STATS FOR FOREST MONSTERS
 MONSTERS Butterfly{ "Butterfly" , generate_stats(ForestDungeonStats,ForestStatsRange), Butterfly_weapon, StartClothes};
 MONSTERS Wolf{ "Wolf",generate_stats(ForestDungeonStats,ForestStatsRange), Claws, StartClothes };
 MONSTERS Fox{ "Fox",generate_stats(ForestDungeonStats,ForestStatsRange), Claws, StartClothes };

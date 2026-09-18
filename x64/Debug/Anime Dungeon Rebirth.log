@@ -1,2 +1,10 @@
-﻿  AnimeDungeonRebirthMenuFunctionscpp.cpp
+﻿  AnimeDungeonRebirthDungeons.cpp
+  AnimeDungeonRebirthGameFunctions.cpp
+  AnimeDungeonRebirthGlobals.cpp
+  AnimeDungeonRebirthMain.cpp
+D:\АИ\Anime Dungeon Rebirth\Anime Dungeon Rebirth\AnimeDungeonRebirthMain.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  AnimeDungeonRebirthMenuFunctionscpp.cpp
+  AnimeDungeonRebirthPlayer.cpp
+  AnimeDungeonRebirthTESTS.cpp
+  Generating Code...
   Anime Dungeon Rebirth.vcxproj -> D:\АИ\Anime Dungeon Rebirth\x64\Debug\Anime Dungeon Rebirth.exe

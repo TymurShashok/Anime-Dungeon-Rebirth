@@ -1,4 +1,5 @@
 #pragma once
+#include "AnimeDungeonRebirthHeader.h"
 class MODIFIERS {
 private:
 	int damageBuff;

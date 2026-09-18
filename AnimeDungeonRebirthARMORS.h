@@ -1,5 +1,5 @@
 #pragma once
-
+#include "AnimeDungeonRebirthHeader.h"
 class ARMOR {
 private:
 	int defense; // 1 defense = 1 damage;

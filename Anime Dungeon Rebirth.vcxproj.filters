@@ -59,6 +59,9 @@
     <ClInclude Include="AnimeDungeonRebirthMONSTERS.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="AnimeDungeonRebirthRandom.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Interface\MainMenu.txt">
@@ -68,6 +71,9 @@
       <Filter>Файлы ресурсов\Interface</Filter>
     </Text>
     <Text Include="Interface\Fighting.txt">
+      <Filter>Файлы ресурсов\Interface</Filter>
+    </Text>
+    <Text Include="Interface\Action_Tab.txt">
       <Filter>Файлы ресурсов\Interface</Filter>
     </Text>
   </ItemGroup>

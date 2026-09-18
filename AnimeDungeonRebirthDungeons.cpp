@@ -9,10 +9,10 @@ int dungeonChoice() {
 	return number;
 }
 
-void forest_dungeon(PLAYER& player) {
+void forest_dungeon(PLAYER& player, MonsterStatsRange st) {
 	const int forest_size = 3;
 	for (int i = 0; i < forest_size; i++) {
-		fight(player, random_forest_monster(random_value(1, 7)));
+		fight(player, random_forest_monster(random_value(1, 7), st));
 		if (player.getHP() < 0) {
 			return;
 		}
