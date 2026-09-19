@@ -17,4 +17,10 @@ public:
 
 
 extern ARMOR StartClothes;
+extern ARMOR Iron_Clothing;
+extern ARMOR Gold_Clothing;
+extern ARMOR Zombie_Clothing;
+extern ARMOR Leaf_Clothing;
+extern ARMOR Volcanic_Clothing;
+extern ARMOR Apalon_Clothing;
 

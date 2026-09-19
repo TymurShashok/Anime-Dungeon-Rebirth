@@ -4,38 +4,38 @@ const int maxSkills = 4;
 
 class SKILL {
 private:
-	std::string skillName;
+	std::string skill_name;
 	double damage;
-	double manaCost;
-	int skillCD;
+	double mana_cost;
+	int skill_CD;
 
 public:
 	SKILL()
-		: skillName(), damage(0.0), manaCost(0.0), skillCD(0) {
+		: skill_name(), damage(0.0), mana_cost(0.0), skill_CD(0) {
 	}
-	SKILL(std::string name, double damage, double manaCost, int skillCD)
-		: skillName( name),
+	SKILL(std::string name, double damage, double mana_cost, int skill_CD)
+		: skill_name( name),
 		damage(damage),
-		manaCost(manaCost),
-		skillCD(skillCD) {
+		mana_cost(mana_cost),
+		skill_CD(skill_CD) {
 	}
 
-	double getSkillDamage() {
+	double get_skill_damage() {
 		return damage;
 
 	}
 
-	double getskillCD() {
-		return skillCD;
+	double get_skill_cd() {
+		return skill_CD;
 
 	}
 
-	double getmanaCost() {
-		return manaCost;
+	double get_mana_cost() {
+		return mana_cost;
 
 	}
-	std::string getSkillName() {
-		return skillName;
+	std::string get_skill_name() {
+		return skill_name;
 	}
 };
 

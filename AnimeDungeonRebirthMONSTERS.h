@@ -14,57 +14,57 @@ struct MonsterStatsRange {
 	const double MIN_DROP_EXP;
 	const double MAX_DROP_EXP;
 
-	const double MANA;
+	const double mana_;
 
 };
 
 
 
 class MONSTERSTATS {
-	// HP AND MANA
+	// HP_ AND mana_
 private:
 
-	int level = 1;
+	int level_ = 1;
 	double drop_Experience = 40;
-	double HP = 40;
-	double Mana = 100;
+	double HP_ = 40;
+	double mana_ = 100;
 	
 
 public:
-	MONSTERSTATS(): HP(), level(1), drop_Experience(40.0), Mana() {}
-	MONSTERSTATS(int level, double dropEXP, double Health , double M) : level(level), drop_Experience(dropEXP), HP(Health*level ), Mana(M) {}
+	MONSTERSTATS(): HP_(), level_(1), drop_Experience(40.0), mana_() {}
+	MONSTERSTATS(int level_, double dropEXP, double Health , double M) : level_(level_), drop_Experience(dropEXP), HP_(Health*level_ ), mana_(M) {}
 
 	// get
 
-	int getLevel() {
-		return level;
+	int get_level() {
+		return level_;
 	}
 
-	double getHp() {
-		return HP;
+	double get_HP() {
+		return HP_;
 	}
 
-	double getMana() {
-		return Mana;
+	double get_mana() {
+		return mana_;
 	}
 	
-	double getDrop_Experience() {
+	double get_drop_experience() {
 		return drop_Experience;
 	}
 	// set
 
-	void setHP(double hp) {
-		this->HP = hp;
+	void set_HP(double HP_) {
+		this->HP_ = HP_;
 	}
-	void setMana(double mana) {
-		this->Mana = mana;
+	void set_mana(double mana_) {
+		this->mana_ = mana_;
 	}
 
-	void generateNewStats(MonsterStatsRange st) {
-		level = random_value(st.MIN_LVL, st.MAX_LVL);
+	void generate_new_stats(MonsterStatsRange st) {
+		level_ = random_value(st.MIN_LVL, st.MAX_LVL);
 		drop_Experience = random_value(st.MIN_DROP_EXP, st.MAX_DROP_EXP);
-		HP = random_value(st.MIN_HP, st.MAX_HP);
-		Mana = st.MANA;
+		HP_ = random_value(st.MIN_HP, st.MAX_HP);
+		mana_ = st.mana_;
 	}
 
 
@@ -83,12 +83,12 @@ public:
 	MONSTERS(): name(), stats(), weapon(), armor(){}
 	MONSTERS(std::string name,MONSTERSTATS statistic, WEAPON Weap, ARMOR arm) :name(name),stats(statistic), weapon(Weap), armor(arm) {}
 	double attack(int g) {
-		return weapon.getDamage(g);
+		return weapon.get_damage(g);
 	}
 
-	void takeDamage(double damage) {
-		double takeDamage = damage;
-		stats.setHP(stats.getHp() - takeDamage);
+	void take_damage(double damage) {
+		double take_damage = damage;
+		stats.set_HP(stats.get_HP() - take_damage);
 	}
 
 	double get_damage() {
@@ -96,27 +96,27 @@ public:
 	}
 
 	int get_Level() {
-		return stats.getLevel();
+		return stats.get_level();
 	}
 
-	std::string getName() {
+	std::string get_name() {
 		return name;
 	}
 
-	double getMana() {
-		return stats.getMana();
+	double get_mana() {
+		return stats.get_mana();
 	}
 
-	double getHP() {
-		return stats.getHp();
+	double get_HP() {
+		return stats.get_HP();
 	}
 
-	double getDropExp() {
-		return stats.getDrop_Experience();
+	double get_drop_experienece() {
+		return stats.get_drop_experience();
 		
 	}
-	void generateNewStats(MonsterStatsRange st) {
-		stats.generateNewStats(st);
+	void generate_new_stats(MonsterStatsRange st) {
+		stats.generate_new_stats(st);
 	}
 };
 
@@ -125,8 +125,8 @@ public:
 //========
 //Forest
 //========
-extern MonsterStatsRange ForestStatsRange;
-extern MONSTERSTATS ForestDungeonStats;
+extern MonsterStatsRange forest_stats_range;
+extern MONSTERSTATS forest_dungeon_stats;
 extern MONSTERS Butterfly;
 extern MONSTERS Wolf;
 extern MONSTERS Fox;

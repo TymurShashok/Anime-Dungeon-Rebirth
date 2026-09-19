@@ -18,16 +18,20 @@ public:
 		Skills{ firstSK, SecondSK, ThirdSK, FourthSK } {
 	}
 
+	int get_skill_CD() {
+
+	}
+
 	double get_visual_damage() {
 		return damage;
 	}
 
-	double getDamage(int i) {
-		return damage + Skills[i-1].getSkillDamage();
+	double get_damage(int i) {
+		return damage + Skills[i-1].get_skill_damage();
 	}
 
-	std::string getSkillName(int i) {
-		return Skills[i-1].getSkillName();
+	std::string get_skill_name(int i) {
+		return Skills[i-1].get_skill_name();
 	}
 };
 
@@ -35,8 +39,8 @@ public:
 extern WEAPON Wood_Sword;
 extern WEAPON Stone_Sword;
 extern WEAPON Zangetsu;
-extern WEAPON NarutoCombatV1;
-extern WEAPON SasukeCombatV1;
+extern WEAPON naruto_combat_v1;
+extern WEAPON sasuke_combat_v1;
 extern WEAPON Virtus_Hammer;
 
 

@@ -1,22 +1,22 @@
 #include "AnimeDungeonRebirthHeader.h"
 
 MONSTERSTATS generate_stats(MONSTERSTATS& stats, MonsterStatsRange st) {
-	return stats = { random_value(st.MIN_LVL, st.MAX_LVL),random_value(st.MIN_DROP_EXP, st.MAX_DROP_EXP), random_value(st.MIN_HP, st.MAX_HP), st.MANA };
+	return stats = { random_value(st.MIN_LVL, st.MAX_LVL),random_value(st.MIN_DROP_EXP, st.MAX_DROP_EXP), random_value(st.MIN_HP, st.MAX_HP), st.mana_ };
 }
 
 MONSTERS random_forest_monster(int random_value, MonsterStatsRange st) {
 	switch(random_value) {
-	case 1: Butterfly.generateNewStats(st); return Butterfly;
-	case 2: Wolf.generateNewStats(st); return Wolf;
-	case 3: Fox.generateNewStats(st); return Fox;
-	case 4: Dryad.generateNewStats(st); return Dryad;
-	case 5: Centaur.generateNewStats(st); return Centaur;
-	case 6: Bear.generateNewStats(st); return Bear;
-	default: Butterfly.generateNewStats(st); return Butterfly;
+	case 1: Butterfly.generate_new_stats(st); return Butterfly;
+	case 2: Wolf.generate_new_stats(st); return Wolf;
+	case 3: Fox.generate_new_stats(st); return Fox;
+	case 4: Dryad.generate_new_stats(st); return Dryad;
+	case 5: Centaur.generate_new_stats(st); return Centaur;
+	case 6: Bear.generate_new_stats(st); return Bear;
+	default: Butterfly.generate_new_stats(st); return Butterfly;
 	}
 }
 
-char fightingChoice() {
+char fighting_choice() {
 	char cmd = _getch();
 	return cmd;
 }
@@ -43,28 +43,28 @@ void fight(PLAYER& player, MONSTERS Monster) {
 	char cmd = '0';
 	char action = cmd;
 	//std::cout << "Monster Bar" << std::endl;
-	//std::cout << Monster.getName();
+	//std::cout << Monster.get_name();
 
-	while (Monster.getHP() > 0 && player.getHP() > 0) {
+	while (Monster.get_HP() > 0 && player.get_HP() > 0) {
 
 		do {
 			cmd = '0';
-			Fighting_Tab();
+			fighting_tab();
 			fighting_stats(player, Monster);
 			action_tab(player, Monster, cmd);
-			cmd = fightingChoice();
+			cmd = fighting_choice();
 			system("cls");
 
 		} while (cmd != '1' && cmd != '2' && cmd != '3');
 
 		switch (cmd) {
 		case '1': {
-				Fighting_Tab();
+				fighting_tab();
 				fighting_stats(player, Monster);
 				action_tab(player, Monster, cmd);
-				skillch = fightingChoice();
+				skillch = fighting_choice();
 				skillint = skill_choice(skillch);
-				Monster.takeDamage(player.attack(skillint));
+				Monster.take_damage(player.attack(skillint));
 				system("cls");
 			break;
 		}
@@ -75,40 +75,16 @@ void fight(PLAYER& player, MONSTERS Monster) {
 
 		}
 
-		if (Monster.getHP() > 0) {
-			player.takeDamage(Monster.attack(random_value(1,4)));
+		if (Monster.get_HP() > 0) {
+			player.take_damage(Monster.attack(random_value(1,4)));
 		}
 
 	}
-	if (player.getHP() <= 0) {
+	if (player.get_HP() <= 0) {
 		player.Die();
 		return;
 	}
-		player.getExp(Monster.getDropExp());
-		getNewLevel(player);
-		system("cls");
+		player.get_experience(Monster.get_drop_experienece());
+		level_up_tab_box(player, Monster);
 	return;
 }
-	
-
-	/*switch (fightingChoice()) {
-	case 1: {
-		moveChoice();
-		switch (fightingChoice()) {
-		case 1: {
-			player.printSkills();
-			std::cin >> g;
-
-			break;
-		}
-
-			  break;
-		case 2:
-
-			break;
-		}
-
-
-		Monster.takeDamage(player.attack(g));
-		std::cout << Monster.getHP();
-	}*/

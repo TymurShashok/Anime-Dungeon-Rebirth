@@ -1,6 +1,6 @@
 #include "AnimeDungeonRebirthHeader.h"
 
-void mainMenu() {
+void main_menu() {
 	
 	std::ifstream infile("Interface/MainMenu.txt");
 	std::string buf;
@@ -19,7 +19,7 @@ void mainMenu() {
 
 
 
-void Fighting_Tab() {
+void fighting_tab() {
 
 	std::ifstream infile("Interface/Fighting.txt");
 	std::string buf;
@@ -39,7 +39,7 @@ void Fighting_Tab() {
 void box_top_and_bottom(int width) {
 	std::cout << '+' << std::setfill('-') << std::setw((width*2) + 4) << '-' << std::setfill(' ') << '+' << std::endl;
 }
-void boxLine(std::string playerstat, std::string monsterstat, int width)
+void fighting_box_line(std::string playerstat, std::string monsterstat, int width)
 {
 	std::cout << std::left << "| " << std::setw(width) << playerstat;
 	std::cout << std::left << "| " << std::setw(width) << monsterstat << " |\n";
@@ -49,25 +49,25 @@ std::string stat_to_string(double value) {
 	return std::to_string(static_cast<int>(value));
 }
 
-void FightingBox(PLAYER player, MONSTERS monster)
+void fighting_box(PLAYER player, MONSTERS monster)
 {
 	const int width = 17;
-		boxLine(player.getName(), monster.getName(), width);
+		fighting_box_line(player.get_name(), monster.get_name(), width);
 
-		boxLine("Level: " + stat_to_string(player.get_Level()), "Level: " + std::to_string(monster.get_Level()), width);;
-		boxLine("HP: " + stat_to_string(player.getHP()), "HP: " + stat_to_string(monster.getHP()), width);
-		boxLine("MANA: " + stat_to_string(player.getMana()), "MANA: " + stat_to_string(monster.getMana()), width);
-		boxLine("ATTACK: " + stat_to_string(player.get_damage()), "ATTACK: " + stat_to_string(monster.get_damage()), width);
+		fighting_box_line("level_: " + stat_to_string(player.get_Level()), "level_: " + std::to_string(monster.get_Level()), width);;
+		fighting_box_line("HP_: " + stat_to_string(player.get_HP()), "HP_: " + stat_to_string(monster.get_HP()), width);
+		fighting_box_line("mana_: " + stat_to_string(player.get_mana()), "mana_: " + stat_to_string(monster.get_mana()), width);
+		fighting_box_line("ATTACK: " + stat_to_string(player.get_damage()), "ATTACK: " + stat_to_string(monster.get_damage()), width);
 		box_top_and_bottom(width);
 }
 
 
 void fighting_stats(PLAYER player, MONSTERS monster) {
 
-	FightingBox(player, monster);
+	fighting_box(player, monster);
 }
 
-void action_box_line(std::string text, int width)
+void default_box_line(std::string text, int width)
 {
 	std::cout << std::left << "| " << std::setw(width*2 + 2) << text << " |\n";
 }
@@ -79,14 +79,14 @@ void action_tab_box(PLAYER player, MONSTERS monster, char action) {
 	switch (action) {
 	case 1: {
 		for (int i = 1; i <= 4; i++) {
-			action_box_line(player.getSkillName(i), width);
+			default_box_line(player.get_skill_name(i), width);
 		}
 		break;
 	}
 	default: {
-		action_box_line("[1] = ATTACK", width);
-		action_box_line("[2] = BAG", width);
-		action_box_line("[3] = RUN", width);
+		default_box_line("[1] = ATTACK", width);
+		default_box_line("[2] = BAG", width);
+		default_box_line("[3] = RUN", width);
 		break;
 	}
 	}
@@ -97,7 +97,29 @@ void action_tab(PLAYER player, MONSTERS monster, char action) {
 
 	action_tab_box(player, monster,  action);
 }
-void moveChoice() {
+
+
+// Interface for level up!
+void level_up_tab_box(PLAYER& player, MONSTERS monster) {
+	const int width = 17;
+	
+	std::cout << "\033[90mYou earned a " << static_cast<int>(monster.get_drop_experienece()) << " experience" << std::endl;
+	
+	if (get_new_lvl(player) == true) {
+		std::cout << "Congratulations you got level up!" << player.get_Level()-1 << "\033[0m\033[33m+ 1\033[0m" << std::endl;
+	}
+	else {
+		std::cout << "You need " << static_cast<int>(player.get_Max_Experience() - player.get_experience()) << " experience for level up!\033[0m" << std::endl;
+	}
+	_getch();
+	system("cls");
+}
+
+
+
+
+
+void move_choice() {
 
 	std::ifstream infile("Interface/moveChoice.txt");
 	std::string buf;

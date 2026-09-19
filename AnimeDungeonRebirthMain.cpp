@@ -17,9 +17,9 @@ int main() {
 	//_getch();
 
 	//test
-	//player.getExp(ORC.getDropExp());
-	//experiencetest(player.getExperience(), 40);
-	//getNewLevel(player);
+	//player.get_experience(ORC.get_drop_experienece());
+	//test_experience(player.get_experience(), 40);
+	//get_new_lvl(player);
 	//std::cout << player.get_Level();
 
 	char cmd;
@@ -29,16 +29,16 @@ int main() {
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
 		std::cout << std::setfill(' ') << std::setw(65) << Name << std::endl;;
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
-		mainMenu();
+		main_menu();
 		std::cout << std::setfill('=') << std::setw(100) << " " << std::endl;
 		std::cout << std::setfill(' ');
 		std::cout << "Insert a Command: ";
-		cmd = fightingChoice();
+		cmd = fighting_choice();
 		system("cls");
 		switch (cmd) {
 		case PLAY: {
 
-			forest_dungeon(player, ForestStatsRange);
+			forest_dungeon(player, forest_stats_range);
 
 			break;
 		}

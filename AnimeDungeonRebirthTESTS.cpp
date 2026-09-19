@@ -1,11 +1,11 @@
 #include "AnimeDungeonRebirthHeader.h"
 
-void experiencetest(double experience, double Expected_experience) {
+void test_experience(double experience_, double Expected_experience) {
 
-	if (experience == Expected_experience) {
+	if (experience_ == Expected_experience) {
 		std::cout << "WORKING";
 	}
-	if (experience < Expected_experience) {
+	if (experience_ < Expected_experience) {
 		std::cout << "FAILED";
 	}
 }

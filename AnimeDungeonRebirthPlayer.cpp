@@ -1,12 +1,13 @@
 #include "AnimeDungeonRebirthHeader.h"
 
-void getNewLevel(PLAYER& player) {
-	if (player.getExperience() > player.get_Max_Experience()) {
-		player.Levelup(player.get_Level());
-		player.resetExperience();
+bool get_new_lvl(PLAYER& player) {
+	if (player.get_experience() > player.get_Max_Experience()) {
+		player.lvl_up(player.get_Level());
+		player.reset_experience();
+		return true;
 	}
 	else {
-		return;
+		return false;
 	}
 
 }

@@ -2,13 +2,13 @@
 #include "AnimeDungeonRebirthHeader.h"
 class MODIFIERS {
 private:
-	int damageBuff;
-	int armorBuff;
+	int damage_buff;
+	int armor_buff;
 
 public:
-	MODIFIERS() : damageBuff(0), armorBuff(0) {}
-	MODIFIERS(int damageBuff, int armorBuff)
-		: damageBuff(damageBuff), armorBuff(armorBuff) {
+	MODIFIERS() : damage_buff(0), armor_buff(0) {}
+	MODIFIERS(int damage_buff, int armor_buff)
+		: damage_buff(damage_buff), armor_buff(armor_buff) {
 	}
 };
 
